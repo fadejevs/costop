@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ThemeToggle } from "./Themetoggle";
 import { Button } from "@/components/ui/button";
 import {
   RegisterLink,
@@ -7,23 +6,27 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { UserNav } from "./UserNav";
+import headerLogo from "../../public/fav.png";
+import Image from "next/image";
 
 export async function Navbar() {
   const { isAuthenticated, getUser } = getKindeServerSession();
   const user = await getUser();
 
   return (
-    <nav className="border-b bg-background h-[10vh] flex items-center">
+    <nav className="border-b h-[10vh] flex items-center">
       <div className="container flex items-center justify-between">
-        <Link href="/">
-          <h1 className="font-bold text-3xl">
-            Marshal<span className="text-primary">Saas</span>
+        <Link
+          href="/"
+          className="nav-text-logo logo flex items-center justify-center space-x-1 sm:justify-center"
+        >
+          <h1 className="hidden font-display text-2xl font-semibold tracking-tight sm:block">
+            Co-Stop
           </h1>
+          <Image src={headerLogo} alt="Logo" width={25} height={25} />
         </Link>
 
         <div className="flex items-center gap-x-5">
-          <ThemeToggle />
-
           {(await isAuthenticated()) ? (
             <UserNav
               email={user?.email as string}
@@ -33,11 +36,13 @@ export async function Navbar() {
           ) : (
             <div className="flex items-center gap-x-5">
               <LoginLink>
-                <Button>Sign In</Button>
+                <Button className="sign-in-btn">Sign In</Button>
               </LoginLink>
 
               <RegisterLink>
-                <Button variant="secondary">Sign Up</Button>
+                <Button className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white">
+                  Sign Up with Google
+                </Button>
               </RegisterLink>
             </div>
           )}
