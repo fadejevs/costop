@@ -451,17 +451,16 @@
   --ring: 263.4 70% 50.4%;
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 
 body {
-  overflow: hidden;
   background-color: #fefefe !important;
 }
 
@@ -500,6 +499,10 @@ body {
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+.nav-border {
+  border-bottom: 1px solid #e5e8eb;
 }
 
 /* loading screen CSS */
@@ -554,6 +557,11 @@ body {
   color: black;
   transition: opacity 0.3s ease-in-out;
 }
+.get-started-button:hover {
+  background-color: var(--brand-color) !important;
+  color: white;
+  transition: opacity 0.3s ease-in-out;
+}
 
 ._welcome__content__header__stats_1569r_49 {
   display: flex;
@@ -601,6 +609,9 @@ body {
   --default-line-height: 140%;
   --letter-spacing: 0;
   --box-shadow: 0px 2px 7px rgba(10, 9, 11, 0.05);
+
+  /* --brand-color: #6967ee; */
+  --brand-color: #ff6632;
 }
 
 @media (min-width: 768px) {
@@ -652,9 +663,13 @@ button {
   background-color: transparent;
   color: black;
 }
+.sign-in-btn:hover {
+  background-color: var(--brand-color) !important;
+  color: white;
+}
 
 .hero-h1 {
-  font-size: 2.7em;
+  font-size: 2.5em;
 }
 ._welcome__content_1569r_7 {
   color: black;
@@ -668,7 +683,7 @@ button {
   text-decoration: none;
 }
 .register-btn {
-  background-color: #ff6632 !important;
+  background-color: var(--brand-color) !important;
 }
 
 .map {
@@ -906,7 +921,7 @@ button {
   position: absolute;
   height: 40px;
   width: 40px;
-  background-color: #ff6632;
+  background-color: var(--brand-color) !important;
   top: 0;
   right: 0;
   left: 0;
