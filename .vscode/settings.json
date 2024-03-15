@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    "**/Thumbs.db": true,
+    "README.md": true,
+    ".next": true,
+    "tsconfig.json": true,
+    "tailwind.config.ts": true,
+    "postcss.config.js": true,
+    "next.config.mjs": true,
+    "next-env.d.ts": true,
+    "components.json": true,
+    ".eslintrc.json": true,
+    "node_modules": true,
+    "**/favicon.ico": false,
+    ".gitignore": true,
+    "package-lock.json": true,
+    "lib": true
+  }
+}
