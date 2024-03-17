@@ -159,7 +159,7 @@ const Stop = () => {
                     className={`${index === 0 ? "" : "blur"}`} // Set locked only for indices greater than 0
                     custom={index} // Pass index as custom prop
                   >
-                    <Link href={`https://buy.stripe.com/bIY16e04T5wZb3qcMM`}>
+                    <Link href={`https://costop.kinde.com/knock-knock`}>
                       <div className="cafe-links m-auto w-full max-w-5xl _welcome__sneakpeak__block__item_1569r_124">
                         <div className="_welcome__sneakpeak__block__item__domain_1569r_184 place-list-name">
                           <span>{place.name}</span>
