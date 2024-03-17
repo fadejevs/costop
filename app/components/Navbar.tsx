@@ -38,15 +38,12 @@ export async function Navbar() {
                     <Button className="sign-in-btn">Sign In</Button>
                   </LoginLink>
 
-                  <a
-                    href="https://costop.kinde.com/knock-knock"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`https://costop.kinde.com/knock-knock`}
+                    className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white"
                   >
-                    <Button className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white">
-                      Early Access
-                    </Button>
-                  </a>
+                    Early Access
+                  </Link>
                 </div>
               )}
             </div>

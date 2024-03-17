@@ -34,14 +34,14 @@ const Stop = () => {
     fetchData();
   }, []);
 
-  const getCurrentLocation = () => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => resolve(position),
-        (error) => reject(error)
-      );
-    });
-  };
+  // const getCurrentLocation = () => {
+  //   return new Promise((resolve, reject) => {
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => resolve(position),
+  //       (error) => reject(error)
+  //     );
+  //   });
+  // };
 
   const fetchNearbyCafes = async (latitude, longitude) => {
     const apiUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node(around:2000,${latitude},${longitude})[amenity=cafe];out;`;
