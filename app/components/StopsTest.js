@@ -88,14 +88,14 @@ const Stop = () => {
     fetchData();
   }, []);
 
-  // const getCurrentLocation = () => {
-  //   return new Promise((resolve, reject) => {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => resolve(position),
-  //       (error) => reject(error)
-  //     );
-  //   });
-  // };
+  const getCurrentLocation = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => resolve(position),
+        (error) => reject(error)
+      );
+    });
+  };
 
   // Dummy data
   useEffect(() => {
@@ -144,7 +144,7 @@ const Stop = () => {
   return (
     <div className={"m-auto w-auto max-w-5xl"}>
       <div className="links mt-5 mb-4 p-4 max-w-5xl">
-        <h2>Nearby:</h2>
+        <h2>Near you:</h2>
         <div>
           <div>
             {loading ? (
