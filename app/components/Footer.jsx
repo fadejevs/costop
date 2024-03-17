@@ -9,9 +9,9 @@ export default function Footer() {
             <p className="footer-text">© 2024 Co-Stop</p>
           </div>
           <div className="footer-text  flex justify-center md:block ">
-            <Link className="blog-link" href="/">
+{/*             <Link className="blog-link" href="/">
               Blog
-            </Link>
+            </Link> */}
             <Link href="https://twitter.com/messages/compose?recipient_id=1605878546660052993">
               Contact
             </Link>
