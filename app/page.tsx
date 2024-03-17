@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
+import Stops from "./components/StopsTest";
+
 // import Head from "next/head";
 
 export default async function Home() {
@@ -41,14 +43,22 @@ export default async function Home() {
                   {/* <p>Access in-depth info, cut an hour from your work session!</p> */}
                   <p>Cut the chase, unlock full info on every workspace!</p>
                 </div>
-                <RegisterLink
+                {/* <RegisterLink
                   className="_defaultButton_5a90_4 register-btn"
                   // href="https://buy.stripe.com/bIY16e04T5wZb3qcMM"
                 >
                   <Button className="register-btn">
                     Subscribe for $0.99/month
                   </Button>
-                </RegisterLink>
+                </RegisterLink> */}
+                <a
+                  className="_defaultButton_5a90_4 register-btn"
+                  href="https://buy.stripe.com/bIY16e04T5wZb3qcMM"
+                >
+                  <Button className="register-btn">
+                    Subscribe for $0.99/month
+                  </Button>
+                </a>
 
                 <div className="_welcome__content__footer__print_1569r_105">
                   <p>
@@ -61,6 +71,7 @@ export default async function Home() {
           </div>
         </div>
       </>
+      <Stops />
     </section>
   );
 }

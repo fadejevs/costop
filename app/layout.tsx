@@ -5,25 +5,22 @@ import prisma from "./lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { unstable_noStore as noStore } from "next/cache";
 import Footer from "./components/Footer";
-import Stops from "./components/Stops";
+// import Stops from "./components/Stops";
 import { url } from "inspector";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
-  title:
-    "Co-Stop – Automatically convert leads into meetings using text messages",
-  description:
-    "Automatically nurture leads via text message and turn them into potential customers.",
+  title: "Co-Stop – Find flexible co-working spaces and cafes near you",
+  description: "Instantly find flexible co-working spaces and cafes near you.",
   openGraph: {
     type: "website",
     url: "https://costop.so",
-    title:
-      "Co-Stop – Automatically convert leads into meetings using text messages",
+    title: "Co-Stop – Find flexible co-working spaces and cafes near you",
     description:
-      "Automatically nurture leads via text message and turn them into potential customers.",
+      "Instantly find flexible co-working spaces and cafes near you.",
     images: [
       {
-        url: "https://usealan.com/assets/images/cover-2.png",
+        url: "images/cover.png",
       },
     ],
   },
@@ -31,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    icon: "images/black.png",
+    icon: "images/orange-fav.png",
   },
 };
 
@@ -64,7 +61,6 @@ export default async function RootLayout({
       <body className={`${data?.colorScheme ?? "theme-orange"}`}>
         <Navbar />
         {children}
-        {/* <Stops /> */}
         <Footer />
       </body>
     </html>

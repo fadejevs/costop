@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  RegisterLink,
-  LoginLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { UserNav } from "./UserNav";
 import headerLogo from "../../public/fav.png";
@@ -41,11 +38,15 @@ export async function Navbar() {
                     <Button className="sign-in-btn">Sign In</Button>
                   </LoginLink>
 
-                  <RegisterLink>
+                  <a
+                    href="https://costop.kinde.com/knock-knock"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white">
-                      Sign Up with Google
+                      Early Access
                     </Button>
-                  </RegisterLink>
+                  </a>
                 </div>
               )}
             </div>
