@@ -20,9 +20,9 @@ async function getData({
   profileImage: string | undefined | null;
 }) {
   noStore();
-  const user = await prisma.user.findUnique({
+  let user = await prisma.user.findUnique({
     where: {
-      id: id,
+      email: email,
     },
     select: {
       id: true,
@@ -32,7 +32,7 @@ async function getData({
 
   if (!user) {
     const name = `${firstName ?? ""} ${lastName ?? ""}`;
-    await prisma.user.create({
+    user = await prisma.user.create({
       data: {
         id: id,
         email: email,
@@ -41,7 +41,7 @@ async function getData({
     });
   }
 
-  if (!user?.stripeCustomerId) {
+  if (!user.stripeCustomerId) {
     const data = await stripe.customers.create({
       email: email,
     });
