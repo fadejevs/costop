@@ -8,13 +8,36 @@ import Footer from "./components/Footer";
 // import Stops from "./components/Stops";
 import { url } from "inspector";
 
+// export const metadata: Metadata = {
+//   metadataBase: new URL("http://localhost:3000"),
+//   title: "Co-Stop – Find flexible co-working spaces and cafes near you",
+//   description: "Instantly find flexible co-working spaces and cafes near you.",
+//   openGraph: {
+//     type: "website",
+//     url: "https://costop.so",
+//     title: "Co-Stop – Find flexible co-working spaces and cafes near you",
+//     description:
+//       "Instantly find flexible co-working spaces and cafes near you.",
+//     images: [
+//       {
+//         url: "images/cover.png",
+//       },
+//     ],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//   },
+//   icons: {
+//     icon: "images/orange-fav.png",
+//   },
+// };
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://www.costop.in"),
   title: "Co-Stop – Find flexible co-working spaces and cafes near you",
   description: "Instantly find flexible co-working spaces and cafes near you.",
   openGraph: {
     type: "website",
-    url: "https://costop.so",
+    url: "https://costop.in",
     title: "Co-Stop – Find flexible co-working spaces and cafes near you",
     description:
       "Instantly find flexible co-working spaces and cafes near you.",
