@@ -34,9 +34,9 @@ export async function Navbar() {
                 />
               ) : (
                 <div className="flex items-center gap-x-2">
-                  <LoginLink>
+{/*                   <LoginLink>
                     <Button className="sign-in-btn">Sign In</Button>
-                  </LoginLink>
+                  </LoginLink> */}
 
                   <Link
                     href={`https://costop.kinde.com/knock-knock`}
