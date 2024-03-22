@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
+import Placeholder from "/public/placeholder.svg";
+import Image from "next/image";
 
 const Stop = () => {
   const [places, setPlaces] = useState([]);
@@ -49,7 +51,6 @@ const Stop = () => {
       const coffeeShopsElement = document.getElementById("coffee-shops");
       coffeeShopsElement.innerHTML = "";
 
-      // Find the nearest cafe
       const nearestCafe = cafesData[0];
 
       if (nearestCafe) {
@@ -65,7 +66,6 @@ const Stop = () => {
         coffeeShopsElement.appendChild(li);
       }
 
-      // Append up to the first 3 cafes from real data
       const nearbyCafes = cafesData.slice(1, 4);
       nearbyCafes.forEach((cafe) => {
         const li = document.createElement("li");
@@ -76,7 +76,6 @@ const Stop = () => {
       document.getElementById("available-places").textContent =
         cafesData.length + " places within your area";
 
-      // Set the places state with real café data
       setPlaces(cafesData);
       setLoading(false);
     } catch (error) {
@@ -88,14 +87,14 @@ const Stop = () => {
     fetchData();
   }, []);
 
-  // const getCurrentLocation = () => {
-  //   return new Promise((resolve, reject) => {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => resolve(position),
-  //       (error) => reject(error)
-  //     );
-  //   });
-  // };
+  const getCurrentLocation = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => resolve(position),
+        (error) => reject(error)
+      );
+    });
+  };
 
   // Dummy data
   useEffect(() => {
@@ -116,7 +115,6 @@ const Stop = () => {
       { name: "N/A", distance: "N/A", type: "N/A", locked: true },
     ];
 
-    // Simulate data fetching delay
     setTimeout(() => {
       setPlaces(dummyData);
       setLoading(false);
@@ -156,13 +154,18 @@ const Stop = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={controls}
-                    className={`${index === 0 ? "" : "blur"}`} // Set locked only for indices greater than 0
-                    custom={index} // Pass index as custom prop
+                    className={`${index === 0 ? "" : "blur"}`}
+                    custom={index}
                   >
                     <Link href={`https://costop.kinde.com/knock-knock`}>
                       <div className="cafe-links m-auto w-full max-w-5xl _welcome__sneakpeak__block__item_1569r_124">
                         <div className="_welcome__sneakpeak__block__item__domain_1569r_184 place-list-name">
                           <span>{place.name}</span>
+                          <Image
+                            src={Placeholder}
+                            alt="Spot Placeholder"
+                            height={40}
+                          />
                         </div>
                         <div className="_welcome__sneakpeak__block__item__data_1569r_195 place-list-info">
                           <div className="_welcome__sneakpeak__block__item__data__item_1569r_209">
@@ -172,11 +175,6 @@ const Stop = () => {
                           <div className="_welcome__sneakpeak__block__item__data__item_1569r_209">
                             <span>Distance</span>
                             <p>{place.distance} km</p>{" "}
-                            {/* Use the real distance here */}
-                          </div>
-                          <div className="_welcome__sneakpeak__block__item__data__item_1569r_209">
-                            <span>Not busy</span>
-                            {/* <p>{place.type}</p> */}
                           </div>
                         </div>
                       </div>

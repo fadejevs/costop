@@ -8,13 +8,13 @@ export default function Footer() {
           <div className="text-center">
             <p className="footer-text">© 2024 Co-Stop</p>
           </div>
-          <div className="footer-text  flex justify-center md:block ">
-{/*             <Link className="blog-link" href="/">
-              Blog
-            </Link> */}
-            <Link href="https://twitter.com/messages/compose?recipient_id=1605878546660052993">
-              Contact
-            </Link>
+
+          <div className="footer-text flex justify-center">
+            <div className="flex items-center">
+              {/* <Link href="/blog">Blog</Link> */}
+              <div className="w-2"></div>
+              <Link href="https://twitter.com/costops">Contact</Link>
+            </div>
           </div>
         </div>
       </div>

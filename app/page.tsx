@@ -4,8 +4,6 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import Stops from "./components/StopsTest";
 
-// import Head from "next/head";
-
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
 
@@ -24,12 +22,9 @@ export default async function Home() {
                   <p id="available-places">0 places within your area.</p>
                 </div>
                 <h1 className="hero-h1">
-                  Deep-work, minus the hassle. <span className="">🧑‍💻</span>
+                  Deep-work, minus the headache. <span className="">🧑‍💻</span>
                 </h1>
-                <p>
-                  Find calm workspaces near you, for the price of a espresso
-                  shot*
-                </p>
+                <p>Workspaces near you, for the price of a espresso shot* </p>
                 <p>Based on your location:</p>
                 <ul id="coffee-shops">
                   <li>cafe</li>
@@ -40,23 +35,15 @@ export default async function Home() {
               </div>
               <div className="_welcome__content__footer_1569r_88">
                 <div className="_welcome__content__footer__access_1569r_98">
-                  {/* <p>Access in-depth info, cut an hour from your work session!</p> */}
-                  <p>Cut the chase, unlock full info on every workspace!</p>
+                  {/* <p>Cut the chase, unlock full info on every workspace!</p> */}
+                  <p>List of amenities, effortless reservations and more!</p>
                 </div>
-                {/* <RegisterLink
-                  className="_defaultButton_5a90_4 register-btn"
-                  // href="https://buy.stripe.com/bIY16e04T5wZb3qcMM"
-                >
-                  <Button className="register-btn">
-                    Subscribe for $0.99/month
-                  </Button>
-                </RegisterLink> */}
                 <a
                   className="_defaultButton_5a90_4 register-btn"
                   href="https://buy.stripe.com/bIY16e04T5wZb3qcMM"
                 >
                   <Button className="register-btn">
-                    Subscribe for $0.99/month
+                    Subscribe for $0.99/mo
                   </Button>
                 </a>
 

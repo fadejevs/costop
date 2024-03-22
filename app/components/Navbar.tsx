@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { UserNav } from "./UserNav";
-import headerLogo from "../../public/fav.png";
+import headerLogo from "../../public/logo.svg";
 import Image from "next/image";
 
 export async function Navbar() {
@@ -34,17 +34,9 @@ export async function Navbar() {
                 />
               ) : (
                 <div className="flex items-center gap-x-2">
-                  <LoginLink>
+                  {/* <LoginLink>
                     <Button className="sign-in-btn">Sign In</Button>
-                  </LoginLink>
-
-                  {/* <Link
-                    href={`http://localhost3000/api/auth/kinde_callback`}
-                    className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white"
-                  >
-                    Sign In
-                  </Link> */}
-
+                  </LoginLink> */}
                   <Link
                     href={`https://costop.kinde.com/knock-knock`}
                     className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white"
