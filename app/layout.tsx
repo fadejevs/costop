@@ -5,7 +5,8 @@ import prisma from "./lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { unstable_noStore as noStore } from "next/cache";
 import Footer from "./components/Footer";
-import { url } from "inspector";
+// import { url } from "inspector";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.costop.in"),
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    icon: "images/orange-fav.png",
+    icon: "logo.svg",
   },
 };
 
@@ -57,6 +58,21 @@ export default async function RootLayout({
     <html lang="en">
       <meta charSet="UTF-8" />
       <body className={`${data?.colorScheme ?? "theme-orange"}`}>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-E3QDH43RQB"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-E3QDH43RQB');
+            `,
+          }}
+        ></script>
         <Navbar />
         {children}
         <Footer />
