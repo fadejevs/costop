@@ -36,14 +36,15 @@ export default async function Home() {
               <div className="_welcome__content__footer_1569r_88">
                 <div className="_welcome__content__footer__access_1569r_98">
                   {/* <p>Cut the chase, unlock full info on every workspace!</p> */}
-                  <p>List of amenities, effortless reservations and more!</p>
+                  <p>In-depth amenities, effortless reservations and more!</p>
                 </div>
                 <a
                   className="_defaultButton_5a90_4 register-btn"
-                  href="https://buy.stripe.com/bIY16e04T5wZb3qcMM"
+                  href="https://buy.stripe.com/00g9CKeZN1gJ7Re289"
                 >
                   <Button className="register-btn">
-                    Subscribe for $0.99/mo
+                    {/* Subscribe for $0.99/mo */}
+                    Early Lifetime for $9.99
                   </Button>
                 </a>
 
