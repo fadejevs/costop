@@ -5,26 +5,32 @@ import prisma from "./lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { unstable_noStore as noStore } from "next/cache";
 import Footer from "./components/Footer";
-// import { url } from "inspector";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.costop.in"),
-  title: "Co-Stop – Nearby co-working spaces and deep-work cafes",
-  description: "Instantly find open co-working spaces and cafes near you.",
+  title: "Nearby co-working spaces and work cafes - Co-Stop",
+  description:
+    "Find and reserve nearby co-working spaces and cafes instantly. Save hours on missed work.",
+  keywords:
+    "Co-working finder, cafes near me, best co-working spaces near me, best cafes near me, best cafes for work, coworking space booking, deep-work spots, co-working places, co-working for companies, co-working for development teams, nearby co-working places",
   openGraph: {
     type: "website",
-    url: "https://costop.in",
-    title: "Co-Stop – Nearby co-working spaces and deep-work cafes",
-    description: "Instantly find open co-working spaces and cafes near you.",
+    url: "https://www.costop.in",
+    title: "Nearby co-working spaces and work cafes - Co-Stop",
+    description:
+      "Find and reserve nearby co-working spaces and cafes instantly. Save hours on missed work.",
     images: [
       {
-        url: "images/cover.png",
+        url: "https://www.costop.in/images/cover.png",
+        width: 1200,
+        height: 800,
+        alt: "Co-Stop Cover Image",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "https://twitter.com/costops",
   },
   icons: {
     icon: "logo.svg",
