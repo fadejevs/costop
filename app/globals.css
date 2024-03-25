@@ -690,6 +690,15 @@ button {
   background-color: var(--brand-color) !important;
 }
 
+.banner {
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+  color: rgb(254, 17, 17);
+  padding: 4px 10px; /* Adjust as needed */
+  border-radius: 5px; /* Adjust as needed */
+}
+
 .map {
   height: 400px;
   width: 400px;

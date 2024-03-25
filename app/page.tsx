@@ -24,7 +24,7 @@ export default async function Home() {
                 <h1 className="hero-h1">
                   Deep-work, minus the headache. <span className="">🧑‍💻</span>
                 </h1>
-                <p>Workspaces near you, for the price of a espresso shot* </p>
+                <p>Workspaces near you, for the price of a espresso shot*</p>
                 <p>Based on your location:</p>
                 <ul id="coffee-shops">
                   <li>cafe</li>
@@ -36,16 +36,21 @@ export default async function Home() {
               <div className="_welcome__content__footer_1569r_88">
                 <div className="_welcome__content__footer__access_1569r_98">
                   {/* <p>Cut the chase, unlock full info on every workspace!</p> */}
-                  <p>In-depth amenities, effortless reservations and more!</p>
+                  <p>
+                    Crowdsourced workplaces, on-platform reservation, amenities
+                    & more!
+                  </p>
                 </div>
                 <a
                   className="_defaultButton_5a90_4 register-btn"
-                  href="https://buy.stripe.com/28o4iq8Bp9Nf9ZmeUW"
+                  href="https://buy.stripe.com/00gbKS3h5e3vb3qbIL"
                 >
-                  <Button className="register-btn">
-                    {/* Subscribe for $0.99/mo */}
-                    Early Lifetime for $19.99
-                  </Button>
+                  <div className="button-container">
+                    <Button className="register-btn">
+                      {/* Subscribe for $0.99/mo */}
+                      Early Lifetime for $14.99
+                    </Button>
+                  </div>
                 </a>
 
                 <div className="_welcome__content__footer__print_1569r_105">

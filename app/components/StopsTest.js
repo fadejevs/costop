@@ -38,15 +38,9 @@ const Stop = () => {
     return distance.toFixed(2);
   };
 
-  const fetchData = async () => {
+  const fetchData = async (latitude, longitude) => {
     try {
-      const position = await getCurrentLocation();
-      const userLat = position.coords.latitude;
-      const userLon = position.coords.longitude;
-      const cafesData = await fetchNearbyCafes(
-        position.coords.latitude,
-        position.coords.longitude
-      );
+      const cafesData = await fetchNearbyCafes(latitude, longitude);
 
       const coffeeShopsElement = document.getElementById("coffee-shops");
       coffeeShopsElement.innerHTML = "";
@@ -55,8 +49,8 @@ const Stop = () => {
 
       if (nearestCafe) {
         const distance = calculateDistance(
-          userLat,
-          userLon,
+          latitude,
+          longitude,
           nearestCafe.latitude,
           nearestCafe.longitude
         );
@@ -83,17 +77,17 @@ const Stop = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const getCurrentLocation = () => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => resolve(position),
-        (error) => reject(error)
-      );
-    });
+  const handleGetLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        fetchData(userLat, userLon);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
   };
 
   // Dummy data
@@ -143,6 +137,9 @@ const Stop = () => {
     <div className={"m-auto w-auto max-w-5xl"}>
       <div className="links mt-5 mb-4 p-4 max-w-5xl">
         <h2>Near you:</h2>
+        <button className="filter-btn" onClick={handleGetLocation}>
+          Filter
+        </button>
         <div>
           <div>
             {loading ? (
