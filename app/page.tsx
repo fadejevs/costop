@@ -47,7 +47,7 @@ export default async function Home() {
                   <div className="button-container">
                     <Button className="register-btn">
                       {/* Subscribe for $0.99/mo */}
-                      Lifetime Pass for $14.99
+                      Lifetime Access for $14.99
                     </Button>
                   </div>
                 </a>
