@@ -37,7 +37,8 @@ export default async function Home() {
                 <div className="_welcome__content__footer__access_1569r_98">
                   {/* <p>Cut the chase, unlock full info on every workspace!</p> */}
                   <p>
-                    Crowdsourced workspaces, self-hosted meetups, API & more!
+                    {/* Crowdsourced workspaces, self-hosted meetups, API & more! */}
+                    List your spaces, host meetups, API & more!
                   </p>
                 </div>
                 <a
