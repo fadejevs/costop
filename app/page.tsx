@@ -22,7 +22,7 @@ export default async function Home() {
                   <p id="available-places">0 places within your area.</p>
                 </div>
                 <h1 className="hero-h1">
-                  Deep-work, minus the headache. <span className="">🧑‍💻</span>
+                  Deep-work, minus the desk hunt. <span className="">🧑‍💻</span>
                 </h1>
                 <p>Workspaces near you, for the price of a espresso shot*</p>
                 <p>Based on your location:</p>
@@ -35,10 +35,10 @@ export default async function Home() {
               </div>
               <div className="_welcome__content__footer_1569r_88">
                 <div className="_welcome__content__footer__access_1569r_98">
-                  {/* <p>Cut the chase, unlock full info on every workspace!</p> */}
                   <p>
                     {/* Crowdsourced workspaces, self-hosted meetups, API & more! */}
-                    List your spaces, host meetups, API & more!
+                    List your spaces, find local spots, API & more!
+                    {/* Host your spaces, find local spots, compare prices & more! */}
                   </p>
                 </div>
                 <a
@@ -48,15 +48,15 @@ export default async function Home() {
                   <div className="button-container">
                     <Button className="register-btn">
                       {/* Subscribe for $0.99/mo */}
-                      Lifetime Access for $14.99
+                      Early Lifetime for $14.99
                     </Button>
                   </div>
                 </a>
-
                 <div className="_welcome__content__footer__print_1569r_105">
                   <p>
-                    * All of the indexed workspaces and cafes are fully
-                    accessible and open to the public.
+                    One-time payment, lifetime access. <br />* All of the
+                    indexed workspaces and cafes are fully accessible and open
+                    to the public.
                   </p>
                 </div>
               </div>

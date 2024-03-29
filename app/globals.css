@@ -690,6 +690,10 @@ button {
   background-color: var(--brand-color) !important;
 }
 
+.span {
+  font-weight: bold;
+}
+
 .banner {
   /* position: absolute; */
   top: 0;
