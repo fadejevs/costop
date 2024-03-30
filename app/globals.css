@@ -694,6 +694,10 @@ button {
   font-weight: bold;
 }
 
+.link-item {
+  color: #999999;
+}
+
 .banner {
   /* position: absolute; */
   top: 0;

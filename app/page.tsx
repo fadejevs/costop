@@ -22,7 +22,7 @@ export default async function Home() {
                   <p id="available-places">0 places within your area.</p>
                 </div>
                 <h1 className="hero-h1">
-                  Deep-work, minus the desk hunt. <span className="">🧑‍💻</span>
+                  Deep-work, minus the desk hunt. <span>🧑‍💻</span>
                 </h1>
                 <p>Workspaces near you, for the price of a espresso shot*</p>
                 <p>Based on your location:</p>
@@ -38,7 +38,6 @@ export default async function Home() {
                   <p>
                     {/* Crowdsourced workspaces, self-hosted meetups, API & more! */}
                     List your spaces, find local spots, API & more!
-                    {/* Host your spaces, find local spots, compare prices & more! */}
                   </p>
                 </div>
                 <a

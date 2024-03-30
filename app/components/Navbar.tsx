@@ -18,9 +18,9 @@ export async function Navbar() {
             href="/"
             className="nav-text-logo logo flex items-center justify-center space-x-1 sm:justify-center"
           >
-            <h1 className="hidden font-display text-2xl font-semibold tracking-tight sm:block">
+            <span className="hidden font-display text-2xl font-semibold tracking-tight sm:block">
               Co-Stop
-            </h1>
+            </span>
             <Image src={headerLogo} alt="Logo" width={25} height={25} />
           </Link>
 

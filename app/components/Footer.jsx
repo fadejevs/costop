@@ -13,11 +13,22 @@ export default function Footer() {
             <div className="flex items-center">
               {/* <Link href="/blog">Blog</Link> */}
               <div className="w-2"></div>
-              <Link href="https://twitter.com/costops">Contact</Link>
+              <button
+                className="link-item"
+                data-tally-open="wd6Rvo"
+                data-tally-width="280"
+                data-tally-overlay="1"
+                data-tally-emoji-text="👋"
+                data-tally-emoji-animation="wave"
+                data-tally-auto-close="2000"
+              >
+                Support
+              </button>
             </div>
           </div>
         </div>
       </div>
+      <script async src="https://tally.so/widgets/embed.js"></script>
     </div>
   );
 }
