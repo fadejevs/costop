@@ -8,17 +8,20 @@ import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.costop.in"),
-  title: "Nearby coworking spaces and cafes for deep work - Co-Stop",
+  title: "Looking for a workspace? | Co-Stop",
+
   description:
-    "Find and reserve nearby coworking spaces and cafes instantly. Save hours on missed work.",
+    "Find and book nearby coworking spaces and cafes instantly. Save hours on missed work.",
   keywords:
     "Co-working finder, cafes near me, best co-working spaces near me, best cafes near me, best cafes for work, coworking space booking, deep-work spots, co-working places, co-working for companies, co-working for development teams, nearby co-working places",
   openGraph: {
     type: "website",
     url: "https://www.costop.in",
-    title: "Nearby coworking spaces and cafes for deep work - Co-Stop",
+    title: "Looking for a workspace? | Co-Stop",
+
     description:
-      "Find and reserve nearby coworking spaces and cafes instantly. Save hours on missed work.",
+      "Find and book nearby coworking spaces and cafes instantly. Save hours on missed work.",
+
     images: [
       {
         url: "https://www.costop.in/images/cover.png",

@@ -3,6 +3,8 @@ import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import Stops from "./components/StopsTest";
+import Features from "./components/Features";
+import FAQ from "./components/FAQ";
 
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
@@ -22,6 +24,7 @@ export default async function Home() {
                   <p id="available-places">0 places within your area.</p>
                 </div>
                 <h1 className="hero-h1">
+                  {/* Deep-work, without the overhead. <span>🧑‍💻</span> */}
                   Deep-work, minus the desk hunt. <span>🧑‍💻</span>
                 </h1>
                 <p>Workspaces near you, for the price of a espresso shot*</p>
@@ -47,7 +50,7 @@ export default async function Home() {
                   <div className="button-container">
                     <Button className="register-btn">
                       {/* Subscribe for $0.99/mo */}
-                      Early Lifetime for $14.99
+                      Lifetime Access for $14.99
                     </Button>
                   </div>
                 </a>
@@ -64,6 +67,8 @@ export default async function Home() {
         </div>
       </>
       <Stops />
+      <Features />
+      <FAQ />
     </section>
   );
 }

@@ -662,6 +662,9 @@ button {
 .nav-text-logo {
   color: black;
 }
+.context-block {
+  background-color: var(--brand-color) !important;
+}
 
 .sign-in-btn {
   background-color: transparent;
@@ -694,17 +697,51 @@ button {
   font-weight: bold;
 }
 
+.last {
+  transform: rotateZ(5deg);
+}
+
+@media screen and (max-width: 640px) {
+  .arrow {
+    transform: rotate(90deg);
+  }
+  .arrow {
+    width: 4em;
+  }
+}
+
+.accordion--container {
+  filter: drop-shadow(var(--box-shadow));
+}
+
+.accordion-item--container {
+  border-radius: var(--border-radius-default) !important;
+}
+
+.span-image {
+  margin-right: 1em;
+}
+
 .link-item {
   color: #999999;
 }
 
-.banner {
-  /* position: absolute; */
-  top: 0;
-  right: 0;
-  color: rgb(254, 17, 17);
-  padding: 4px 10px; /* Adjust as needed */
-  border-radius: 5px; /* Adjust as needed */
+.faq-span {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255 255 255);
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: var(--border-radius-default);
+}
+
+.accordion-item--container {
+  background-color: #f5f5f5 !important;
+  color: var(--brand-color);
+}
+
+.accordion-item--content {
+  background-color: #f5f5f5 !important;
 }
 
 .map {
