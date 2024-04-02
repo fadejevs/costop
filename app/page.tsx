@@ -45,12 +45,12 @@ export default async function Home() {
                 </div>
                 <a
                   className="_defaultButton_5a90_4 register-btn"
-                  href="https://buy.stripe.com/00g9CKeZN1gJ7Re289"
+                  href="https://buy.stripe.com/00gbKS3h5e3vb3qbIL"
                 >
                   <div className="button-container">
                     <Button className="register-btn">
                       {/* Subscribe for $0.99/mo */}
-                      Lifetime Access for $9.99
+                      Lifetime Access for $14.99
                     </Button>
                   </div>
                 </a>
