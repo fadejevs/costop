@@ -744,11 +744,6 @@ button {
   background-color: #f5f5f5 !important;
 }
 
-.price {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
 .place-list-block {
   text-decoration: none;
 }
@@ -769,6 +764,10 @@ button {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 4px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .notif-box-desc {

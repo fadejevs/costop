@@ -142,7 +142,7 @@ const Stop = () => {
   return (
     <div className={"m-auto w-auto max-w-5xl"}>
       <div className="links mt-5 mb-4 p-4 max-w-5xl">
-        <h2>Near you:</h2>
+        <h2>Close to you:</h2>
         <div>
           <div>
             {loading ? (

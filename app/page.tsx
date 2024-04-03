@@ -56,9 +56,9 @@ export default async function Home() {
                 </a>
                 <div className="_welcome__content__footer__print_1569r_105">
                   <p>
-                    One-time payment, lifetime access. <br />* All of the
-                    indexed workspaces and cafes are fully accessible and open
-                    to the public.
+                    * One-time payment, lifetime access. <br />
+                    All of the indexed workspaces and cafes are fully accessible
+                    and open to the public.
                   </p>
                 </div>
               </div>

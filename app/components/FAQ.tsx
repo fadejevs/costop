@@ -11,7 +11,7 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "Can I add workspaces?",
-      answer: "Soon. Both customers & workspace owners.",
+      answer: "Soon. For both customers & workspace owners.",
     },
     {
       question: "What's so special?",
@@ -77,7 +77,7 @@ const FAQ = () => {
                     maxHeight: expandedIndex === index ? "500px" : "0",
                   }}
                 >
-                  <p>{item.answer}</p>
+                  <p className="bold">{item.answer}</p>
                 </div>
               </div>
             ))}
