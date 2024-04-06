@@ -20,6 +20,7 @@ const Stop = () => {
       name: place.tags.name || "Unnamed Cafe",
       latitude: place.lat,
       longitude: place.lon,
+      imageUrl: place.tags.image || null,
     }));
   };
 
@@ -118,7 +119,7 @@ const Stop = () => {
     setTimeout(() => {
       setPlaces(dummyData);
       setLoading(false);
-    }, 1000);
+    }, 200);
   }, []);
 
   const controls = useAnimation();
@@ -162,9 +163,10 @@ const Stop = () => {
                         <div className="_welcome__sneakpeak__block__item__domain_1569r_184 place-list-name">
                           <span>{place.name}</span>
                           <Image
-                            src={Placeholder}
-                            alt="Spot Placeholder"
+                            src={place.imageUrl ? place.imageUrl : Placeholder}
+                            alt={place.name}
                             height={40}
+                            width={40}
                           />
                         </div>
                         <div className="_welcome__sneakpeak__block__item__data_1569r_195 place-list-info">

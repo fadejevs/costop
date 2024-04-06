@@ -28,21 +28,23 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center p-2">
-      <span className="p-5 faq-span">FAQ</span>
+    <div className="m-auto w-full max-w-5xl mt-2 mb-4 p-4">
+      <div className="text-center mb-5">
+        <h2 className="text-4xl font-bold">FAQ</h2>
+      </div>
       <section id="faq" className="faq my-4">
         <section className="badge-group"></section>
-        <h2 className=" font-semibold text-3xl lg:text-5xl text-center mx-auto">
+        <h2 className="font-semibold text-3xl lg:text-5xl text-center mx-auto">
           Hopefully, some answers
         </h2>
 
-        <section className="accordion--container my-16  max-w-3xl mx-auto offset-y-0 offset-x-8">
-          <div className="accordion-item--container border border-neutral-200 bg-white overflow-hidden border border-t-0 rounded-b-lg">
+        <section className="accordion--container my-16 max-w-3xl mx-auto">
+          <div className="accordion-item--container border border-neutral-200 bg-white overflow-hidden border-t-0 rounded-b-lg">
             {faqItems.map((item, index) => (
               <div className="accordion-item--wrapper" key={index}>
                 <h2 className="accordion-item--heading mb-0">
                   <button
-                    className="group relative flex w-full font-semibold items-center  border-0 bg-white py-4 px-5 text-left text-base text-neutral-800 transition"
+                    className="group relative flex w-full font-semibold items-center border-0 bg-white py-4 px-5 text-left text-base text-neutral-800 transition"
                     type="button"
                     aria-expanded={expandedIndex === index ? "true" : "false"}
                     onClick={() => toggleAccordion(index)}

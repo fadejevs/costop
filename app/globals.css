@@ -586,6 +586,7 @@ body {
   font-size: var(--font-size-small) !important;
   margin: 0;
   color: #b15516 !important;
+  /* color: var(--brand-color) !important; */
 }
 
 :root {
@@ -632,6 +633,28 @@ h2 {
   margin: 0;
   padding: 0;
 }
+
+.hero-h1 {
+  letter-spacing: -0.4px !important;
+}
+
+@media (max-width: 715px) {
+  .hero-h1 {
+    max-width: 100% !important;
+  }
+} 
+
+.main-heading {
+  line-height: 1.3em;
+}
+.main-subheading {
+  margin-top: 1.2em;
+}
+
+.star {
+  color: var(--brand-color);
+}
+
 p {
   margin: 10px 0;
   line-height: 140%;
@@ -677,6 +700,9 @@ button {
 
 .hero-h1 {
   font-size: 2.5em;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
 }
 ._welcome__content_1569r_7 {
   color: black;
@@ -1061,7 +1087,7 @@ button {
 }
 @keyframes _pulse_1569r_1 {
   0% {
-    box-shadow: 0 0 #cca92c66;
+    box-shadow: 0 0 #00000066;
   }
   70% {
     box-shadow: 0 0 0 10px #cca92c00;

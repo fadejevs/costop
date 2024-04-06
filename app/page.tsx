@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Stops from "./components/StopsTest";
 import Features from "./components/Features";
 import FAQ from "./components/FAQ";
+// import Map from "./components/Map";
 
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
@@ -23,12 +24,13 @@ export default async function Home() {
                   <span></span>
                   <p id="available-places">0 places within your area.</p>
                 </div>
-                <h1 className="hero-h1">
-                  {/* Deep-work, without the overhead. <span>🧑‍💻</span> */}
-                  Deep-work, minus the desk hunt. <span>🧑‍💻</span>
+                <h1 className="hero-h1 main-heading" style={{ maxWidth: "calc(100% - 80px)"}}>
+                  Workspaces near you, priced at a espresso shot
+                  <span>.</span> <span> 🧑‍💻</span>
                 </h1>
-                <p>Workspaces near you, for the price of a espresso shot*</p>
-                <p>Based on your location:</p>
+                {/* <p>Deep-work, minus the desk hunt.</p> */}
+                {/* <p>Workspaces near you, for the price of a espresso shot*</p> */}
+                <p className="main-subheading">Based on your location:</p>
                 <ul id="coffee-shops">
                   <li>cafe</li>
                   <li>workspace</li>
@@ -66,6 +68,8 @@ export default async function Home() {
           </div>
         </div>
       </>
+
+      {/* <Map /> */}
       <Stops />
       <Features />
       <FAQ />

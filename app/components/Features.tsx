@@ -22,8 +22,8 @@ const Features = () => {
             </span>
           </h2>
           <p className="text-lg my-5">
-            Focus on your work, not planning where to do it <br />
-            Get <strong>hours </strong>back on your project
+            Focus on your work, <strong>not</strong> planning where to do it <br />
+            Get <strong>hours </strong>back on your work time
           </p>
         </div>
         <div className="items my-2 ">
@@ -31,7 +31,7 @@ const Features = () => {
             <li className="flex flex-col items-center text-center">
               <h2 className="mx-auto emoji">🤔</h2>
               <h2 className="text-lg font-bold">
-                These workspace prices are crazy
+                Any cool spots to work from?
               </h2>
             </li>
             <li className="flex flex-col items-center text-center">
@@ -55,7 +55,7 @@ const Features = () => {
               />
             </li>
             <li className="flex flex-col items-center text-center">
-              <h1 className="mx-auto emoji last">👩‍💻</h1>
+              <h2 className="mx-auto emoji last">👩‍💻</h2>
               <h2 className="text-lg font-bold">Let me check costop!</h2>
             </li>
           </ul>
