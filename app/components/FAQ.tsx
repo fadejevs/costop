@@ -28,9 +28,10 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="m-auto w-full max-w-5xl mt-2 mb-4 p-4">
-      <div className="text-center mb-5">
-        <h2 className="text-4xl font-bold">FAQ</h2>
+  
+    <div className="m-auto w-full max-w-5xl mt-2 mb-3 p-4">
+      <div className="flex flex-col justify-center items-center p-2">
+       <span className="p-5 faq-span">FAQ</span>
       </div>
       <section id="faq" className="faq my-4">
         <section className="badge-group"></section>
