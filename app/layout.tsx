@@ -5,6 +5,7 @@ import prisma from "./lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { unstable_noStore as noStore } from "next/cache";
 import Footer from "./components/Footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.costop.in"),
@@ -68,21 +69,19 @@ export default async function RootLayout({
     <html lang="en">
       <meta charSet="UTF-8" />
       <body className={`${data?.colorScheme ?? "theme-orange"}`}>
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-E3QDH43RQB"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+          strategy="afterInteractive"
+        />
 
-              gtag('config', 'G-E3QDH43RQB');
-            `,
-          }}
-        ></script>
+        <Script strategy="afterInteractive" id="google-analytics">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E3QDH43RQB');
+  `}
+        </Script>
         <Navbar />
         {children}
         <Footer />

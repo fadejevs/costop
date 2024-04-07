@@ -9,12 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  CreditCard,
-  DoorClosed,
-  Search,
-  MapPinned,
-} from "lucide-react";
+import { CreditCard, DoorClosed, Search, MapPinned } from "lucide-react";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 import Link from "next/link";

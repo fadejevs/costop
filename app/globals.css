@@ -619,6 +619,8 @@ body {
   --brand-color: #ff6632;
 }
 
+
+
 @media (min-width: 768px) {
   .wrapper {
     width: 850px !important;
@@ -643,7 +645,6 @@ h2 {
     max-width: 100% !important;
   }
 } 
-
 
 .early { 
   position: absolute;

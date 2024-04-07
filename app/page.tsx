@@ -50,14 +50,17 @@ export default async function Home() {
                 >
                   <div className="button-container">
                     <Button className="register-btn">
-                      Early Adopters for $14.99
+                      Early Lifetime for $14.99
                     </Button>
                   </div>
                 </a>
                 <div className="w-full flex-col justify-left">
-                  <p><strong>7 of 20</strong> left</p>
-                  <div className="w-full bg-gray-300 rounded-full h-3">
-                    <div className="bg-[#FA7417] h-3 rounded-full dark:[#] w-[35%]"></div>
+                  <p>
+                    <strong>7 of 20</strong> left!
+                  </p>
+                  <div className="w-full bg-gray-300 rounded-full h-1.5">
+                    <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[35%]"></div>
+                    {/* <div className="bg-[#635aff] h-3.5 rounded-full dark:[#] w-[35%]"></div> */}
                   </div>
                 </div>
                 <div className="_welcome__content__footer__print_1569r_105">

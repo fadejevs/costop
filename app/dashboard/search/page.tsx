@@ -1,83 +1,98 @@
 "use client";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import { Icon } from "leaflet";
+import { MapContainer as LeafletMapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
+// Dynamically import the 'react-leaflet' components to avoid 'window is not defined' error during SSR
+const MapContainer = dynamic(() => Promise.resolve(LeafletMapContainer), { ssr: false });
+const DynamicTileLayer = dynamic(() => Promise.resolve(TileLayer), { ssr: false });
+const DynamicMarker = dynamic(() => Promise.resolve(Marker), { ssr: false });
+const DynamicPopup = dynamic(() => Promise.resolve(Popup), { ssr: false });
+
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState, useCallback } from "react";
+
+interface CoworkingSpot {
+  name: string;
+  latitude: number;
+  longitude: number;
+  type: string;
+}
 
 const Test = () => {
-  const [coworkingSpots, setCoworkingSpots] = useState([]);
-  const [userLocation, setUserLocation] = useState({ lat: 0, lng: 0 }); // Initialize with default values to prevent undefined error
+  const [coworkingSpots, setCoworkingSpots] = useState<CoworkingSpot[]>([]);
+  const [userLocation, setUserLocation] = useState({ lat: 0, lng: 0 }); // Initialize with default values
 
-  const customIcon = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/789/789012.png", // Icon resembling a table
-    iconSize: [40, 40], // size of the icon
-    iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -40], // point from which the popup should open relative to the iconAnchor
-  });
-  const getCurrentLocation = useCallback(() => {
-    return new Promise((resolve, reject) => {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => resolve(position),
-          (error) => reject(error),
-          { timeout: 10000 }
+  // Define customIcon inside useEffect to ensure L is not called server-side and to address the 'any' type issue
+  const [customIcon, setCustomIcon] = useState<Icon | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("leaflet").then((L) => {
+        setCustomIcon(
+          new L.Icon({
+            iconUrl: "https://cdn-icons-png.flaticon.com/512/789/789012.png",
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40],
+          })
         );
-      } else {
-        reject(new Error("Geolocation is not supported by this browser."));
-      }
-    });
+      });
+    }
   }, []);
 
-  const fetchNearbyPlaces = useCallback(
-    async (latitude: number, longitude: number) => {
+  useEffect(() => {
+    if (typeof navigator !== "undefined" && "geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error fetching user location:", error);
+          // Keep the default location if there's an error
+        },
+        {
+          timeout: 10000,
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchNearbyPlaces = async (latitude: number, longitude: number) => {
       const apiUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node(around:2000,${latitude},${longitude})[amenity=cafe];out;`;
+
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
-        return data.elements.map(
-          (place: { tags: { name: string }; lat: number; lon: number }) => ({
-            name: place.tags.name || "Unnamed Coworking Space",
-            latitude: place.lat,
-            longitude: place.lon,
-            type: "cafe",
-          })
-        );
+        const places = data.elements.map((place: any) => ({
+          name: place.tags.name || "Unnamed Coworking Space",
+          latitude: place.lat,
+          longitude: place.lon,
+          type: "cafe",
+        }));
+        setCoworkingSpots(places);
       } catch (error) {
         console.error("Error fetching nearby places:", error);
-        return [];
+        setCoworkingSpots([]);
       }
-    },
-    []
-  );
+    };
 
-  useEffect(() => {
-    getCurrentLocation()
-      .then((position: any) =>
-        setUserLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        })
-      )
-      .catch((error: any) => {
-        console.error("Error fetching user location:", error);
-        setUserLocation({ lat: 0, lng: 0 }); // Set default location on error to prevent undefined error
-      });
-  }, [getCurrentLocation]);
-
-  useEffect(() => {
     if (userLocation.lat !== 0 && userLocation.lng !== 0) {
-      // Check if userLocation is not default value before fetching
-      fetchNearbyPlaces(userLocation.lat, userLocation.lng)
-        .then((spots: any) => setCoworkingSpots(spots))
-        .catch((error: any) =>
-          console.error("Failed to fetch coworking spots:", error)
-        );
+      // Check if the default location has been updated
+      fetchNearbyPlaces(userLocation.lat, userLocation.lng);
     }
-  }, [userLocation, fetchNearbyPlaces]);
+  }, [userLocation]);
 
-  if (!userLocation || (userLocation.lat === 0 && userLocation.lng === 0))
-    return <div>Loading map...</div>; // Check if userLocation is default value
+  // Check if the map should be rendered based on userLocation being updated from default
+  if (userLocation.lat === 0 && userLocation.lng === 0)
+    return <div>Loading map...</div>;
 
   return (
     <MapContainer
@@ -92,24 +107,19 @@ const Test = () => {
         zIndex: "0",
       }}
     >
-      <TileLayer
+      <DynamicTileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {coworkingSpots.map(
-        (
-          spot: { latitude: number; longitude: number; name: string },
-          index: number
-        ) => (
-          <Marker
-            key={index}
-            position={[spot.latitude, spot.longitude]}
-            icon={customIcon}
-          >
-            <Popup>{spot.name}</Popup>
-          </Marker>
-        )
-      )}
+      {coworkingSpots.map((spot, index) => (
+        <DynamicMarker
+          key={index}
+          position={[spot.latitude, spot.longitude]}
+          icon={customIcon || undefined}
+        >
+          <DynamicPopup>{spot.name}</DynamicPopup>
+        </DynamicMarker>
+      ))}
     </MapContainer>
   );
 };
