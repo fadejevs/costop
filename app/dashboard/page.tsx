@@ -60,14 +60,11 @@ export default async function DashboardPage() {
     <div className="grid items-start gap-y-8">
       <div className="flex items-center justify-between px-2">
         <div className="grid gap-1">
-          <h1 className="text-3xl md:text-4xl">Feedback</h1>
-          <p className="text-lg text-muted-foreground">
-            What do you want to see more of?
-          </p>
+          <h1 className="text-3xl md:text-4xl">Workspaces</h1>
         </div>
 
         <Button asChild>
-          <Link href="/dashboard/new">Create a new Note</Link>
+          <Link href="/dashboard/new">Add</Link>
         </Button>
       </div>
 

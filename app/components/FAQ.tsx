@@ -15,7 +15,7 @@ const FAQ = () => {
     },
     {
       question: "What's so special?",
-      answer: "Save your most precious resource, time.",
+      answer: "Discounts on workspaces, slashing hours and stress to find the perfect one.",
     },
     {
       question: "Where can I leave feedback?",

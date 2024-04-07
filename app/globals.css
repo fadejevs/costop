@@ -644,6 +644,18 @@ h2 {
   }
 } 
 
+
+.early { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2a4afe;
+  color: white;
+  padding: 4px 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 10px;
+}
+
 .main-heading {
   line-height: 1.3em;
 }

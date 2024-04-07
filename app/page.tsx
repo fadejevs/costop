@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import Stops from "./components/StopsTest";
 import Features from "./components/Features";
 import FAQ from "./components/FAQ";
-// import Map from "./components/Map";
 
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
@@ -24,7 +23,10 @@ export default async function Home() {
                   <span></span>
                   <p id="available-places">0 places within your area.</p>
                 </div>
-                <h1 className="hero-h1 main-heading" style={{ maxWidth: "calc(100% - 80px)"}}>
+                <h1
+                  className="hero-h1 main-heading"
+                  style={{ maxWidth: "calc(100% - 80px)" }}
+                >
                   Workspaces near you, priced at a espresso shot
                   <span>.</span> <span> 🧑‍💻</span>
                 </h1>
@@ -40,10 +42,7 @@ export default async function Home() {
               </div>
               <div className="_welcome__content__footer_1569r_88">
                 <div className="_welcome__content__footer__access_1569r_98">
-                  <p>
-                    {/* Crowdsourced workspaces, self-hosted meetups, API & more! */}
-                    List your spaces, find local spots, API & more!
-                  </p>
+                  <p>List your spaces, find local spots, API & more!</p>
                 </div>
                 <a
                   className="_defaultButton_5a90_4 register-btn"
@@ -51,11 +50,16 @@ export default async function Home() {
                 >
                   <div className="button-container">
                     <Button className="register-btn">
-                      {/* Subscribe for $0.99/mo */}
-                      Lifetime Access for $14.99
+                      Early Adopters for $14.99
                     </Button>
                   </div>
                 </a>
+                <div className="w-full flex-col justify-left">
+                  <p><strong>7 of 20</strong> left</p>
+                  <div className="w-full bg-gray-300 rounded-full h-3">
+                    <div className="bg-[#FA7417] h-3 rounded-full dark:[#] w-[35%]"></div>
+                  </div>
+                </div>
                 <div className="_welcome__content__footer__print_1569r_105">
                   <p>
                     * One-time payment, lifetime access. <br />
@@ -69,7 +73,6 @@ export default async function Home() {
         </div>
       </>
 
-      {/* <Map /> */}
       <Stops />
       <Features />
       <FAQ />
