@@ -13,7 +13,7 @@ export default async function Home() {
     return redirect("/dashboard");
   }
   return (
-    <section className={"m-auto w-full max-w-5xl"}>
+    <section className={"m-auto w-full max-w-4xl"}>
       <>
         <div className="mt-2 mb-4 p-4">
           <div className="wrapper">
@@ -56,11 +56,11 @@ export default async function Home() {
                 </a>
                 <div className="w-full flex-col justify-left">
                   <p>
-                    <strong>7 of 20</strong> left!
+                    <strong>18 of 20</strong> left!
                   </p>
                   <div className="w-full bg-gray-300 rounded-full h-1.5">
-                    <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[35%]"></div>
-                    {/* <div className="bg-[#635aff] h-3.5 rounded-full dark:[#] w-[35%]"></div> */}
+                    {/* <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[35%]"></div> */}
+                    <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[10%]"></div>
                   </div>
                 </div>
                 <div className="_welcome__content__footer__print_1569r_105">

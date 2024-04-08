@@ -2,13 +2,30 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { Icon } from "leaflet";
-import { MapContainer as LeafletMapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import {
+  MapContainer as LeafletMapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+} from "react-leaflet";
 
 // Dynamically import the 'react-leaflet' components to avoid 'window is not defined' error during SSR
-const MapContainer = dynamic(() => Promise.resolve(LeafletMapContainer), { ssr: false });
-const DynamicTileLayer = dynamic(() => Promise.resolve(TileLayer), { ssr: false });
-const DynamicMarker = dynamic(() => Promise.resolve(Marker), { ssr: false });
-const DynamicPopup = dynamic(() => Promise.resolve(Popup), { ssr: false });
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((module) => module.MapContainer),
+  { ssr: false }
+);
+const DynamicTileLayer = dynamic(
+  () => import("react-leaflet").then((module) => module.TileLayer),
+  { ssr: false }
+);
+const DynamicMarker = dynamic(
+  () => import("react-leaflet").then((module) => module.Marker),
+  { ssr: false }
+);
+const DynamicPopup = dynamic(
+  () => import("react-leaflet").then((module) => module.Popup),
+  { ssr: false }
+);
 
 import "leaflet/dist/leaflet.css";
 
@@ -27,17 +44,16 @@ const Test = () => {
   const [customIcon, setCustomIcon] = useState<Icon | null>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("leaflet").then((L) => {
-        setCustomIcon(
-          new L.Icon({
-            iconUrl: "https://cdn-icons-png.flaticon.com/512/789/789012.png",
-            iconSize: [40, 40],
-            iconAnchor: [20, 40],
-            popupAnchor: [0, -40],
-          })
-        );
-      });
+    const L = typeof window !== "undefined" ? require("leaflet") : null;
+    if (L) {
+      setCustomIcon(
+        new L.Icon({
+          iconUrl: "https://cdn-icons-png.flaticon.com/512/789/789012.png",
+          iconSize: [40, 40],
+          iconAnchor: [20, 40],
+          popupAnchor: [0, -40],
+        })
+      );
     }
   }, []);
 
