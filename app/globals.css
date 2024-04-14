@@ -558,6 +558,7 @@ body {
 .get-started-button {
   background-color: transparent;
   border: 1px solid #717171;
+  border-radius: var(--border-radius-default);
   color: black;
   transition: opacity 0.3s ease-in-out;
 }

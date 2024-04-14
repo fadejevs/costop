@@ -65,7 +65,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <meta charSet="UTF-8" />
-      <body className={`${data?.colorScheme ?? "theme-orange"}`}>
+      <body className={``}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-E3QDH43RQB"
           strategy="afterInteractive"
