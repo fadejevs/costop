@@ -14,18 +14,18 @@ export default function SuccessRoute() {
 
           <div className="mt-3 text-center sm:mt-5 w-full">
             <h3 className="text-lg leading-6 font-medium">
-              Payment Successfull
+              Payment Successful
             </h3>
             <div className="mt-2">
               <p className="text-sm text-muted-foreground">
-                Congrats on your subscription, please check your email for
+                Welcome to Co-Stop, please check your email for
                 further instructions
               </p>
             </div>
 
             <div className="mt-5 sm:mt-6 w-full">
               <Button className="w-full" asChild>
-                <Link href="/">Go back to Dashboard</Link>
+              <Link href="/dashboard">Go to Dashboard</Link>
               </Button>
             </div>
           </div>

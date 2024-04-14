@@ -48,7 +48,7 @@ const Test = () => {
     if (L) {
       setCustomIcon(
         new L.Icon({
-          iconUrl: "https://cdn-icons-png.flaticon.com/512/789/789012.png",
+          iconUrl: "https://cdn-icons-png.flaticon.com/512/789/789012.",
           iconSize: [40, 40],
           iconAnchor: [20, 40],
           popupAnchor: [0, -40],

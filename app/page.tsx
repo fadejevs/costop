@@ -6,6 +6,7 @@ import Stops from "./components/StopsTest";
 import Features from "./components/Features";
 import FAQ from "./components/FAQ";
 
+
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
 
@@ -59,7 +60,6 @@ export default async function Home() {
                     <strong>18 of 20</strong> left!
                   </p>
                   <div className="w-full bg-gray-300 rounded-full h-1.5">
-                    {/* <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[35%]"></div> */}
                     <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[10%]"></div>
                   </div>
                 </div>
@@ -82,3 +82,5 @@ export default async function Home() {
     </section>
   );
 }
+
+

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import prisma from "../lib/db";
+import prisma from "@/app/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Edit, File, Trash } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -11,25 +11,17 @@ import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 async function getData(userId: string) {
   noStore();
   const data = await prisma.user.findUnique({
-    where: {
-      id: userId,
-    },
+    where: { id: userId },
     select: {
       Notes: {
         select: {
-          title: true,
           id: true,
+          title: true,
           description: true,
           createdAt: true,
         },
         orderBy: {
           createdAt: "desc",
-        },
-      },
-
-      Subscription: {
-        select: {
-          status: true,
         },
       },
     },

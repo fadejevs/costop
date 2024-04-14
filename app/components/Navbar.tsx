@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink , RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { UserNav } from "./UserNav";
 import headerLogo from "../../public/logo.svg";
@@ -34,7 +34,8 @@ export async function Navbar() {
                 />
               ) : (
                 <div className="flex items-center gap-x-2">
-                  {/* <LoginLink>
+                  {/* <RegisterLink>Sign Up</RegisterLink>
+                  <LoginLink>
                     <Button className="sign-in-btn">Sign In</Button>
                   </LoginLink> */}
                   <Link

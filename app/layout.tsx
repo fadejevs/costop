@@ -49,9 +49,6 @@ async function getData(userId: string) {
       where: {
         id: userId,
       },
-      select: {
-        colorScheme: true,
-      },
     });
     return data;
   }

@@ -3,88 +3,57 @@ import { DashboardNav } from "../components/DashboardNav";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import prisma from "../lib/db";
-import { stripe } from "../lib/stripe";
 import { unstable_noStore as noStore } from "next/cache";
 
-async function getData({
-  email,
-  id,
-  firstName,
-  lastName,
-  profileImage,
-}: {
-  email: string;
-  id: string;
-  firstName: string | undefined | null;
-  lastName: string | undefined | null;
-  profileImage: string | undefined | null;
-}) {
+async function getData({ email, id }: { email: string; id: string }) {
   noStore();
   let user = await prisma.user.findUnique({
-    where: {
-      email: email,
-    },
-    select: {
-      id: true,
-      stripeCustomerId: true,
-    },
+    where: { email },
+    select: { id: true, lifetimeAccess: true },
   });
 
   if (!user) {
-    const name = `${firstName ?? ""} ${lastName ?? ""}`;
     user = await prisma.user.create({
-      data: {
-        id: id,
-        email: email,
-        name: name,
-      },
+      data: { id, email },
     });
   }
 
-  if (!user.stripeCustomerId) {
-    const data = await stripe.customers.create({
-      email: email,
-    });
-
-    await prisma.user.update({
-      where: {
-        id: id,
-      },
-      data: {
-        stripeCustomerId: data.id,
-      },
-    });
-  }
+  return { lifetimeAccess: user.lifetimeAccess };
 }
 
-export default async function DashboardLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default async function DashboardLayout({ children }: { children: ReactNode }) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) {
     return redirect("/");
   }
-  await getData({
+  const { lifetimeAccess } = await getData({
     email: user.email as string,
-    firstName: user.given_name as string,
     id: user.id as string,
-    lastName: user.family_name as string,
-    profileImage: user.picture,
   });
+
+  if (!lifetimeAccess) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div>
+          <h1>Welcome to Your Dashboard</h1>
+          <p>Please complete your one-time payment to access all features.</p>
+          <a href="https://buy.stripe.com/test_00gaFw4m45o63Go146" className="button">
+            Pay Now
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-10 m-auto w-full max-w-5xl">
       <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
         <aside className="hidden w-[200px] flex-col md:flex">
-          <DashboardNav/>
+          <DashboardNav />
         </aside>
         <main>{children}</main>
       </div>
     </div>
   );
 }
-
-
