@@ -555,12 +555,96 @@ body {
   max-height: 25px;
 }
 
+.border-radius { 
+  border-radius: var(--border-radius-default);
+}
+
+.btn { 
+  background-color: var(--brand-color);
+  color: white;
+  transition: background-color 0.3s ease-out;
+}
+.btn:hover { 
+background-color: #e55b2d !important;
+}
+
+.btn-destructive { 
+  background-color: rgb(255, 28, 43) !important;
+  color: white;
+}
+
+input::placeholder {
+  color: #787878 !important; /* Light shade of gray */
+}
+textarea::placeholder {
+  color: #787878 !important; /* Light shade of gray */
+}
+
+.nav-item { 
+  transition: background-color 0.3s ease-out;
+}
+.nav-item:hover { 
+  background-color: #e5e5e5 !important;
+}
+.red { 
+  transition: background-color 0.3s ease-out;
+}
+
+.red:hover { 
+  background-color: #f9e4e3 !important;
+  color: #e87a75 !important;
+}
+
+.bold { 
+  font-weight: bold !important;
+}
+
+
+.input { 
+  border: 1px solid #717171;
+  border-radius: var(--border-radius-default);
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+.popover {
+  background-color: #fff7d2;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-out forwards;
+  transform-origin: bottom center;
+}
+
+.chat-bubble {
+
+  margin-top: -5px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) translateX(-50%);
+  }
+}
+
+
 .get-started-button {
   background-color: transparent;
-  border: 1px solid #717171;
+  border: 1px solid var(--color-border);
   border-radius: var(--border-radius-default);
   color: black;
   transition: opacity 0.3s ease-in-out;
+  transition: background-color 0.3s ease-out;
 }
 .get-started-button:hover {
   background-color: var(--brand-color) !important;

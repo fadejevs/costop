@@ -47,19 +47,20 @@ export default async function NewNoteRoute() {
     <Card>
       <form action={postData}>
         <CardHeader>
-          <CardTitle>New Note</CardTitle>
-          <CardDescription>
-            Right here you can now create your new notes
-          </CardDescription>
+          <CardTitle>New Stop</CardTitle>
+          {/* <CardDescription>
+            Here you can add your new workspace
+          </CardDescription> */}
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
           <div className="gap-y-2 flex flex-col">
-            <Label>Title</Label>
+            {/* <Label>Name</Label> */}
             <Input
               required
               type="text"
               name="title"
-              placeholder="Title for your note"
+              placeholder="What's it called?"
+              className="placeholder-gray-200"
             />
           </div>
 
@@ -67,14 +68,14 @@ export default async function NewNoteRoute() {
             <Label>Description</Label>
             <Textarea
               name="description"
-              placeholder="Describe your note as you want"
+              placeholder="Describe your stop"
               required
             />
           </div>
         </CardContent>
 
         <CardFooter className="flex justify-between">
-          <Button asChild variant="destructive">
+          <Button asChild variant="destructive" className="red border-radius">
             <Link href="/dashboard">Cancel</Link>
           </Button>
           <SubmitButton />

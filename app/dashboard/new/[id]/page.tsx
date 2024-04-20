@@ -70,20 +70,20 @@ export default async function DynamicRoute({
     <Card>
       <form action={postData}>
         <CardHeader>
-          <CardTitle>Edit Note</CardTitle>
-          <CardDescription>
-            Right here you can now edit your notes
-          </CardDescription>
+          <CardTitle>Edit Stop</CardTitle>
+          {/* <CardDescription>
+            Here you can make any changes needed.
+          </CardDescription> */}
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
           <div className="gap-y-2 flex flex-col">
-            <Label>Title</Label>
             <Input
               required
               type="text"
               name="title"
-              placeholder="Title for your note"
+              placeholder="What's it called?"
               defaultValue={data?.title}
+            
             />
           </div>
 
@@ -91,7 +91,7 @@ export default async function DynamicRoute({
             <Label>Description</Label>
             <Textarea
               name="description"
-              placeholder="Describe your note as you want"
+              placeholder="Describe your stop"
               required
               defaultValue={data?.description}
             />
@@ -99,7 +99,7 @@ export default async function DynamicRoute({
         </CardContent>
 
         <CardFooter className="flex justify-between">
-          <Button asChild variant="destructive">
+          <Button asChild variant="destructive" className="red border-radius">
             <Link href="/dashboard">Cancel</Link>
           </Button>
           <SubmitButton />

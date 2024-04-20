@@ -1,4 +1,3 @@
-// app/api/checkout/create-session.ts
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { stripe } from '@/app/lib/stripe'; // Use the centralized Stripe instance
