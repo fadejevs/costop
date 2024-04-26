@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DoorClosed, Search, MapPinned } from "lucide-react";
+import { DoorClosed, Search, MapPinned, Users, List, Coins } from "lucide-react";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 import Link from "next/link";
@@ -17,6 +17,8 @@ import Link from "next/link";
 export const navItems = [
   { name: "Stops", href: "/dashboard/", icon: MapPinned },
   { name: "Near Me", href: "/dashboard/search", icon: Search },
+  { name: "Connections", href: "/dashboard/connections", icon: Users },
+  // { name: "Payouts", href: "/dashboard/payouts", icon: Coins },
 ];
 
 export function UserNav({

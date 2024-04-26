@@ -18,8 +18,7 @@ export default function SuccessRoute() {
             </h3>
             <div className="mt-2">
               <p className="text-sm text-muted-foreground">
-                Welcome to Co-Stop, please check your email for
-                further instructions
+                Welcome to Co-Stop, take a second to get familiar with the app.
               </p>
             </div>
 

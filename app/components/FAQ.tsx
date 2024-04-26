@@ -11,7 +11,7 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "Can I add workspaces?",
-      answer: "Soon. For both customers & workspace owners.",
+      answer: "Soon. For both users & workspace owners.",
     },
     {
       question: "What's so special?",

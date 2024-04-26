@@ -5,6 +5,11 @@ import { redirect } from "next/navigation";
 import prisma from "../lib/db";
 import { unstable_noStore as noStore } from "next/cache";
 import PaymentButton from "../components/PaymentButton";
+import Image from "next/image";
+import underline from "/public/underline.svg";
+
+
+
 
 async function getData({ email, id }: { email: string; id: string }) {
   noStore();
@@ -35,25 +40,40 @@ export default async function DashboardLayout({ children }: { children: ReactNod
 
   if (!lifetimeAccess) {
     return (
-      <div className="mt-10 m-auto w-full max-w-5xl">
+      <div className="relative mt-10 m-auto w-full max-w-5xl">
         <div className="flex flex-col md:flex-row">
           <aside className="md:w-[200px] hidden md:block">
-            <DashboardNav />
+            <DashboardNav/>
           </aside>
           <div className="flex-1">
-            <div className="block items-center justify-center h-auto px-10 py-4 text-center">
-              <div>
-                <h1 className="text-2xl font-bold">Welcome, {user?.given_name || "User"}!</h1>
-                <p className="mx-auto max-w-[400px]">
-                  Enter your email to complete a one-time payment.
-                </p>
-                <div className="flex justify-center">
-                  <PaymentButton />
+            <div className="container grid flex-1 gap-12 md:grid-cols-1">
+              <div className="items-center justify-center px-10 py-6 text-center bg-red-100 border-radius mb-8 cool-box">
+              <div className="absolute top-2 left-29 -translate-x-4 -translate-y-4">
+                <div className="emoji index-module_emoji__1XBIX index-module_animate__wave__1uYZ0">👋</div>
+               </div>
+                <div>
+                  <div className="text-center">
+                    <h1 className="text-2xl font-bold text-center">
+                      <span className="underline-text">Welcome, {user?.given_name || "User"}!</span>
+                      <Image
+                        src={underline}
+                        alt="Underline"
+                        height={28}
+                        className="block mx-auto pl-20"
+                      />
+                    </h1>
+                  
+                    <span>
+                    </span>
+                  </div>
+                  <p className="mx-auto max-w-[400px]">
+                    Confirm your email & a one-time payment to gain access to the community.
+                  </p>
+                  <div className="flex justify-center">
+                    <PaymentButton />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="container grid flex-1 gap-12 md:grid-cols-1">
-              <main>{children}</main>
             </div>
           </div>
         </div>
@@ -62,13 +82,46 @@ export default async function DashboardLayout({ children }: { children: ReactNod
   }
 
   return (
+
+ 
     <div className="mt-10 m-auto w-full max-w-5xl">
-      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
-        <aside className="hidden w-[200px] flex-col md:flex">
-          <DashboardNav />
-        </aside>
-        <main>{children}</main>
+        <div className="flex flex-col md:flex-row">
+          <aside className="md:w-[200px] hidden md:block">
+            <DashboardNav />
+          </aside>
+          <div className="flex-1">
+            <div className="container grid flex-1 gap-2 md:grid-cols-1">
+            <div className="items-center justify-center px-10 py-6 text-center bg-orange-100 border-radius mb-8 cool-box">
+              <div className="absolute top-2 left-29 -translate-x-4 -translate-y-4">
+                <div className="emoji index-module_emoji__1XBIX index-module_animate__wave__1uYZ0">👋</div>
+               </div>
+                <div>
+                  <div className="text-center">
+                    <h1 className="text-2xl font-bold text-center">
+                      <span className="underline-text">Welcome, {user?.given_name || "User"}!</span>
+                      <Image
+                        src={underline}
+                        alt="Underline"
+                        height={28}
+                        className="block mx-auto pl-20"
+                      />
+                    </h1>
+                  
+                    <span>
+                    </span>
+                  </div>
+                  {/* <p className="mx-auto max-w-[400px]">
+                    Confirm your email & complete the payment to gain access to the community.
+                  </p>
+                  <div className="flex justify-center">
+                    <PaymentButton />
+                  </div> */}
+                </div>
+              </div>
+              <main>{children}</main>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   );
 }

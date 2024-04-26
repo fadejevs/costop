@@ -17,15 +17,15 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 
-async function getData({ userId, noteId }: { userId: string; noteId: string }) {
+async function getData({ userId, stopId }: { userId: string; stopId: string }) {
   noStore();
-  const data = await prisma.note.findUnique({
+  const data = await prisma.stop.findUnique({
     where: {
-      id: noteId,
+      id: stopId,
       userId: userId,
     },
     select: {
-      title: true,
+      location: true,
       description: true,
       id: true,
     },
@@ -41,24 +41,24 @@ export default async function DynamicRoute({
 }) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  const data = await getData({ userId: user?.id as string, noteId: params.id });
+  const data = await getData({ userId: user?.id as string, stopId: params.id });
 
   async function postData(formData: FormData) {
     "use server";
 
     if (!user) throw new Error("you are not allowed");
 
-    const title = formData.get("title") as string;
+    const location = formData.get("location") as string;
     const description = formData.get("description") as string;
 
-    await prisma.note.update({
+    await prisma.stop.update({
       where: {
         id: data?.id,
         userId: user.id,
       },
       data: {
         description: description,
-        title: title,
+        location: location,
       },
     });
 
@@ -76,22 +76,22 @@ export default async function DynamicRoute({
           </CardDescription> */}
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
-          <div className="gap-y-2 flex flex-col">
+          <div className="gap-y-2 flex flex-col border-dashed border-2 border-gray-200 p-1 rounded-md">
             <Input
               required
               type="text"
-              name="title"
-              placeholder="What's it called?"
-              defaultValue={data?.title}
+              name="location"
+              placeholder="Address?"
+              defaultValue={data?.location}
             
             />
           </div>
 
           <div className="flex flex-col gap-y-2">
-            <Label>Description</Label>
+            <Label>What are you working on?</Label>
             <Textarea
               name="description"
-              placeholder="Describe your stop"
+              placeholder="Few words about the project"
               required
               defaultValue={data?.description}
             />

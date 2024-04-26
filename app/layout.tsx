@@ -80,7 +80,9 @@ export default async function RootLayout({
   `}
         </Script>
         <Navbar />
-        {children}
+        <div style={{ minHeight: '70vh' }}>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

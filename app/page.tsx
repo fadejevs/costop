@@ -7,6 +7,7 @@ import Features from "./components/Features";
 import FAQ from "./components/FAQ";
 
 
+
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
 

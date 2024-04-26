@@ -86,7 +86,7 @@ const Stop = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]); // Include fetchData in the dependency array
 
   const getCurrentLocation = () => {
     return new Promise((resolve, reject) => {

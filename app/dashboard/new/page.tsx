@@ -1,5 +1,6 @@
 import { SubmitButton } from "@/app/components/Submitbuttons";
 import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -16,8 +17,11 @@ import prisma from "@/app/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
+import { Rat } from "lucide-react";
 
-export default async function NewNoteRoute() {
+export default async function NewStopRoute() {
+
+
   noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
@@ -29,14 +33,14 @@ export default async function NewNoteRoute() {
       throw new Error("Not authorized");
     }
 
-    const title = formData.get("title") as string;
+    const location = formData.get("location") as string;
     const description = formData.get("description") as string;
 
-    await prisma.note.create({
+    await prisma.stop.create({
       data: {
         userId: user?.id,
         description: description,
-        title: title,
+        location: location,
       },
     });
 
@@ -53,22 +57,32 @@ export default async function NewNoteRoute() {
           </CardDescription> */}
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
-          <div className="gap-y-2 flex flex-col">
-            {/* <Label>Name</Label> */}
+
+          <div className="gap-y-2 flex flex-col border-dashed border-2 border-gray-200 p-1 rounded-md">
             <Input
               required
               type="text"
-              name="title"
-              placeholder="What's it called?"
+              name="location"
+              placeholder="Address?"
               className="placeholder-gray-200"
             />
           </div>
+          
+          <div className="gap-y-2 flex flex-col border-dashed border-2 border-gray-200 p-4 rounded-md">
+            <select name="internetQuality" required className="placeholder-gray-200 border-none rounded-md">
+              <option value="">Internet?</option>
+              <option value="good">Great</option>
+              <option value="average">Good enough</option>
+              <option value="poor">Bad</option>
+              <option value="none">No Internet</option>
+            </select>
+          </div>
 
           <div className="flex flex-col gap-y-2">
-            <Label>Description</Label>
+            <Label>What are you working on?</Label>
             <Textarea
               name="description"
-              placeholder="Describe your stop"
+              placeholder="Few words about the project"
               required
             />
           </div>

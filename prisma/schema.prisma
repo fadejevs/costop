@@ -14,12 +14,12 @@ model User {
   email            String   @unique
   stripeCustomerId String?  @unique
   lifetimeAccess   Boolean? @default(false)
-  Notes            Note[]
+  Stops            Stop[]
 }
 
-model Note {
+model Stop {
   id          String   @id @default(uuid())
-  title       String
+  location    String
   description String
 
   createdAt DateTime @default(now())

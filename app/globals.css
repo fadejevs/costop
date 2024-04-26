@@ -543,6 +543,12 @@ body {
   text-align: left;
 }
 
+.para { 
+  color: #7d7d7d;
+  font-size: var(--font-size-micro);
+  text-align: left;
+}
+
 .footer-text {
   color: #ababab !important;
 }
@@ -573,12 +579,14 @@ background-color: #e55b2d !important;
   color: white;
 }
 
+
 input::placeholder {
   color: #787878 !important; /* Light shade of gray */
 }
 textarea::placeholder {
   color: #787878 !important; /* Light shade of gray */
 }
+
 
 .nav-item { 
   transition: background-color 0.3s ease-out;
@@ -637,6 +645,38 @@ textarea::placeholder {
   }
 }
 
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+.starrating > input[type="radio"] {
+  display: none;
+}
+
+.starrating > label {
+  display: inline-block;
+  width: 2.5em; /* Adjust based on your SVG's aspect ratio */
+  height: 2.5em; /* Adjust based on your SVG's aspect ratio */
+  margin: 6px;
+  border: 1px solid var(--color-grey) ;
+  border-radius: var(--border-radius-default);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/money.svg');
+  opacity: 0.3; /* Set lower opacity for the default state */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity changes */
+}
+
+.starrating > input:checked ~ label,
+.starrating > input:hover ~ label {
+  opacity: 1; /* Full opacity on hover or when checked */
+}
+
+.pricing { 
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
 
 .get-started-button {
   background-color: transparent;
@@ -647,6 +687,19 @@ textarea::placeholder {
   transition: background-color 0.3s ease-out;
 }
 .get-started-button:hover {
+  background-color: var(--brand-color) !important;
+  color: white;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add {
+  background-color: #ffeae4;
+  border: 1px solid var(--color-border);
+  color: black;
+  transition: opacity 0.3s ease-in-out;
+  transition: background-color 0.3s ease-out;
+}
+.add:hover {
   background-color: var(--brand-color) !important;
   color: white;
   transition: opacity 0.3s ease-in-out;
@@ -972,6 +1025,15 @@ button {
 ._welcome_1569r_4 {
   padding: 80px 0;
 }
+
+.cool-box { 
+  --box-shadow: 0px 2px 4px rgba(10, 9, 11, 0.05);
+  border-radius: var(--border-radius-big);
+  border: 1px solid #dfdfdf;
+  position: relative;
+  margin-top: 10px;
+}
+
 ._welcome__content_1569r_7 {
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-big);
