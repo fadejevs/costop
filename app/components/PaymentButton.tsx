@@ -44,7 +44,7 @@ export default function PaymentButton() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          priceId: 'price_1P3KyfKks4pzFwyLOtsKQd3n',
+          priceId: 'price_1OyEWZKks4pzFwyLtAjtw8P4',
           domainUrl: window.location.origin,
           email: email
         })
