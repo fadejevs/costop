@@ -9,8 +9,6 @@ import Image from "next/image";
 import underline from "/public/underline.svg";
 
 
-
-
 async function getData({ email, id }: { email: string; id: string }) {
   noStore();
   let user = await prisma.user.findUnique({
