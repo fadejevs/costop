@@ -34,15 +34,15 @@ export async function Navbar() {
                 />
               ) : (
                 <div className="flex items-center gap-x-2">
-                  <LoginLink>
+                  {/* <LoginLink>
                     <Button className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white">Sign In</Button>
-                  </LoginLink>
-                  {/* <Link
+                  </LoginLink> */}
+                  <Link
                     href={`https://costop.kinde.com/knock-knock`}
                     className="get-started-button cursor-pointer rounded-md bg-none py-2 px-4 text-white"
                   >
                     Early Access
-                  </Link> */}
+                  </Link>
                   {/* <RegisterLink>Sign Up</RegisterLink> */}
                 </div>
               )}
