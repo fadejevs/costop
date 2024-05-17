@@ -11,7 +11,7 @@ export default function Footer() {
 
           <div className="footer-text flex justify-center">
             <div className="flex items-center">
-              {/* <Link href="/blog">Blog</Link> */}
+              <Link href="/tos" className="mr-2 text-sm">Terms of Service</Link>
               <div className="w-2"></div>
               <button
                 className="link-item"

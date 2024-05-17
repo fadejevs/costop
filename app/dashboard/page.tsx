@@ -59,7 +59,6 @@ export default async function DashboardPage() {
           <div className="para">
                   <p>
                     * Add your own workspaces. <br />
-                  Also, let other users know what you are working on!
                   </p>
                 </div>
         </div>

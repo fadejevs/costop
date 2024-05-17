@@ -5,8 +5,7 @@ import { redirect } from "next/navigation";
 import Stops from "./components/StopsTest";
 import Features from "./components/Features";
 import FAQ from "./components/FAQ";
-
-
+import Popup from "./components/Popup";
 
 export default async function Home() {
   const { isAuthenticated } = getKindeServerSession();
@@ -52,16 +51,21 @@ export default async function Home() {
                 >
                   <div className="button-container">
                     <Button className="register-btn">
-                      Lifetime Access for $12.99
+                      Unlimited Access for $12.99
                     </Button>
                   </div>
+                  {/* <div className="button-container">
+                    <Button className="register-btn">
+                       Unlimited Searches, $1 a Week 
+                    </Button>
+                  </div> */}
                 </a>
                 <div className="w-full flex-col justify-left">
                   <p>
-                    <strong>18 of 20</strong> left!
+                    <strong>16 of 20</strong> left!
                   </p>
                   <div className="w-full bg-gray-300 rounded-full h-1.5">
-                    <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[10%]"></div>
+                    <div className="bg-[#FA7417] h-1.5 rounded-full dark:[#] w-[32%]"></div>
                   </div>
                 </div>
                 <div className="_welcome__content__footer__print_1569r_105">
@@ -77,11 +81,10 @@ export default async function Home() {
         </div>
       </>
 
+      <Popup />
       <Stops />
       <Features />
       <FAQ />
     </section>
   );
 }
-
-
