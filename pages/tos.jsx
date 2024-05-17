@@ -52,7 +52,7 @@ export default function tos() {
         <h1 className="title">Terms and Conditions for Co-Stop</h1>
         <p className="text">Last Updated: May 15, 2024</p>
         <p className="text">Welcome to Co-Stop!</p>
-        <p className="text">These Terms of Service ("Terms") govern your use of the Co-Stop website at https://costop.in ("Website") and the services provided by Co-Stop. By using our Website and services, you agree to these Terms.</p>
+        <p className="text">These Terms of Service (&quot;Terms&quot;) govern your use of the Co-Stop website at https://costop.in (&quot;Website&quot;) and the services provided by Co-Stop. By using our Website and services, you agree to these Terms.</p>
         <h2 className="subtitle">1. Description of Co-Stop</h2>
         <p className="text">Co-Stop is a platform that allows users to discover nearby coworking and work-from-spaces, and connect with likeminded individuals with the use of JavaScript.</p>
         <h2 className="subtitle">2. Ownership and Usage Rights</h2>

@@ -1,17 +1,18 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const testimonials = [
   {
     message: "This is amazing! 👏 literally found my dream cafe",
     author: "Esther Z.",
-    image: "./images/t1.jpg",
+    image: "/images/t1.jpg", // Ensure the path starts with a leading slash
     time: "2 days ago"
   },
   {
     message: "Was playing around with this, saved me a few hours of searching.",
     author: "Marcel H.",
-    image: "./images/t2.jpeg",
+    image: "/images/t2.jpeg", // Ensure the path starts with a leading slash
     time: "7 days ago"
   }
 ];
@@ -118,13 +119,13 @@ const Popup = () => {
       </style>
       <div className={`social-proof-container ${visible ? 'fade-in' : 'fade-out'}`}>
         <div className="social-proof">
-          <img src={image} alt="Profile" className="profile-pic" />
+          <Image src={image} alt="Profile" className="profile-pic" width={40} height={40} />
           <div className="social-proof-text">
             <div className="author-time">
               <p className="author">{author}</p>
               <span className="time">{time}</span>
             </div>
-            <p> "{message}"</p>
+            <p> &quot;{message}&quot;</p>
           </div>
         </div>
       </div>

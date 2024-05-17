@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import debounce from 'lodash/debounce';
 import { Icon } from "leaflet";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import espresso from "@/public/espresso.svg";
+
 
 const MapContainer = dynamic(() => import("react-leaflet").then((module) => module.MapContainer), { ssr: false });
 const DynamicTileLayer = dynamic(() => import("react-leaflet").then((module) => module.TileLayer), { ssr: false });
@@ -99,7 +99,7 @@ const Test = () => {
       console.error("Error fetching nearby places:", error);
       setCoworkingSpots([]);
     }
-  }, 300), []);
+  }, 300), [setCoworkingSpots]); // Include all used state setters or other dependencies here
 
   const mapCenter = useMemo((): [number, number] => [userLocation.lat, userLocation.lng], [userLocation.lat, userLocation.lng]);
 
